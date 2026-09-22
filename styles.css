@@ -1,0 +1,163 @@
+html {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+header {
+    background-color: #187A97;
+    color: azure;
+}
+
+nav {
+    background-color: #086480;
+    padding: 1rem;
+    font-size: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    /* Convierte la lista en un contenedor flex (horizontal por defecto) */
+    justify-content: center;
+    /* Centra los elementos de la lista */
+    gap: 2rem;
+    /* Agrega espacio entre los elementos */
+}
+
+.nav-list a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+body {
+    background-color: #187A97;
+    color: white;
+}
+
+.carousel-container {
+    text-align: center;
+}
+
+.card-servicios {
+    padding: 10px;
+    margin: 0;
+    border: 3px solid white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card-servicios img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+}
+
+.lista-servicios {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.detalles-servicios {
+    padding: 10px;
+    margin: 10px;
+}
+
+.btn-consultar {
+    background-color: #2EA5BB;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.botones-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.precio-destacado {
+    color: black;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+.datos-contacto a {
+    color: black;
+}
+
+footer {
+    background-color: #2EA5BB;
+}
+
+.redes-sociales {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.redes-sociales a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.carousel-container>video {
+    width: 50%;
+    height: auto;
+}
+
+
+
+.lista-servicios>li {
+    width: calc(25% - 1.5rem);
+}
+
+
+@media (max-width: 920px) {
+    .lista-servicios>li {
+        width: calc(50% - 1rem);
+    }
+
+    .carousel-container>video {
+        width: 80%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .lista-servicios>li {
+        width: 100%;
+    }
+
+    .carousel-container>video {
+        width: 100%;
+        height: auto;
+    }
+
+    .botones-container {
+        flex-direction: column;
+    }
+}
