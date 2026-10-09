@@ -7,21 +7,67 @@ html {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    /*scroll-padding-top: 80px;*/
 }
 
-header {
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
     background-color: #187A97;
-    color: azure;
+    color: #f0f8ff;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.contenedor-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.seccion {
+    padding: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.main-header {
+    /*background-color: #11596e;*/
+    background-color: #187C96;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /*padding: 1.5rem; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-img {
+    width: 60%;
+    height: auto;
+    display: block;
+}
+
+.mobile-only {
+    display: none;
 }
 
 nav {
     background-color: #086480;
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-list {
@@ -29,110 +75,292 @@ nav {
     padding: 0;
     margin: 0;
     display: flex;
-    /* Convierte la lista en un contenedor flex (horizontal por defecto) */
     justify-content: center;
-    /* Centra los elementos de la lista */
     gap: 2rem;
-    /* Agrega espacio entre los elementos */
 }
 
 .nav-list a {
     color: #e0e0e0;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-body {
-    background-color: #187A97;
-    color: white;
+.nav-list a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+#about-us {
+    flex: 1;
+    font-size: 1.1rem;
+}
+
+#about-us-img {
+    flex: 1;
+}
+
+#about-us-img img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 
 .carousel-container {
     text-align: center;
-}
-
-.card-servicios {
-    padding: 10px;
-    margin: 0;
-    border: 3px solid white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.card-servicios img {
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-    height: auto;
+    margin-bottom: 3rem;
 }
 
 .lista-servicios {
     list-style: none;
-    padding: 10px;
+    padding: 0;
     margin: 0;
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-servicios {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    margin: 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-servicios:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card-servicios img {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .detalles-servicios {
-    padding: 10px;
-    margin: 10px;
-}
-
-.btn-consultar {
-    background-color: #2EA5BB;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 0.9rem;
+    padding: 0;
+    margin: 10px 0 20px 20px;
+    flex-grow: 1;
 }
 
 .botones-container {
     display: flex;
     gap: 10px;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: auto;
+}
+
+.btn-consultar {
+    background-color: #2EA5BB;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-consultar:hover {
+    background-color: #1f7a8b;
+    transform: scale(1.05);
 }
 
 .precio-destacado {
-    color: black;
+    color: #01095C;
     text-align: center;
     margin-top: 15px;
     font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.resenas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.resena-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    font-style: italic;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.contacto-contenedor {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.contacto-info {
+    flex: 1;
+}
+
+.contacto-form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.contacto-iframe {
+    width: 100%;
+    height: 397px;
+    border-radius: 10px;
+    background-color: white;
 }
 
 .datos-contacto a {
-    color: black;
+    color: #ffeb3b;
+    text-decoration: none;
 }
 
+.datos-contacto a:hover {
+    text-decoration: underline;
+}
+
+
 footer {
-    background-color: #2EA5BB;
+    background-color: #086480;
+    padding: 2rem 0;
+    text-align: center;
 }
 
 .redes-sociales {
     list-style: none;
-    padding: 10px;
-    margin: 0;
+    padding: 0;
+    margin: 0 0 1rem 0;
     display: flex;
+    justify-content: center;
     gap: 2rem;
 }
 
 .redes-sociales a {
-    color: #e0e0e0;
-    text-decoration: none;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.redes-sociales a:hover {
+    transform: scale(1.2);
 }
 
 .carousel-container>video {
-    width: 50%;
-    height: auto;
+    width: 60%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
-
-
 
 .lista-servicios>li {
     width: calc(25% - 1.5rem);
+}
+
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+
+.newsletter-layout {
+    display: flex;
+    width: 100%;
+}
+
+.main-header-newsletter-1 {
+    width: 100%;
+    background-color: #187C96;
+    color: white;
+    padding: 2rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#header-newsletter img {
+    width: 30%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#fpo-newsletter img {
+    width: 60%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-newsletter {
+    position: sticky;
+    top: 0;
+    width: 25%;
+    height: 100vh;
+    background-color: #11596e;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-list-newsletter {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.nav-list-newsletter a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-list-newsletter a:hover {
+    color: #ffeb3b;
+}
+
+.content-newsletter {
+    width: 75%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .newsletter-layout {
+        flex-direction: column;
+    }
+
+    .sidebar-newsletter {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .content-newsletter {
+        width: 100%;
+    }
 }
 
 
@@ -143,21 +371,48 @@ footer {
 
     .carousel-container>video {
         width: 80%;
-        height: auto;
+    }
+
+    .resenas-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: block !important;
+    }
+
+    .hero-img {
+        width: 100%;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
     .lista-servicios>li {
         width: 100%;
     }
 
     .carousel-container>video {
         width: 100%;
-        height: auto;
     }
 
     .botones-container {
+        flex-direction: column;
+    }
+
+    .resenas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contacto-contenedor {
         flex-direction: column;
     }
 }

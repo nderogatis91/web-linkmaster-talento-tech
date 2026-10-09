@@ -8,18 +8,25 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body>
-    <form action="https://formspree.io/f/mrpgoodj" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br>
+<body style="background-color: white; color: #333; margin: 0; padding: 20px;">
+    <form action="https://formspree.io/f/mrpgoodj" method="POST" style="display: flex; flex-direction: column; gap: 15px; font-family: 'Google Sans Flex', sans-serif;">
+        
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label for="nombre" style="font-weight: bold;">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: inherit; font-size: 1rem;">
+        </div>
 
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required><br>
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label for="email" style="font-weight: bold;">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: inherit; font-size: 1rem;">
+        </div>
 
-        <label for="mensaje">Mensaje:</label><br>
-        <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br>
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label for="mensaje" style="font-weight: bold;">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea>
+        </div>
 
-        <button type="submit">Enviar</button>
+        <button type="submit" class="btn-consultar" style="align-self: flex-start; margin-top: 10px;">Enviar</button>
     </form>
 </body>
 

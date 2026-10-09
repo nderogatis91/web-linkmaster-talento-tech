@@ -5,62 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
         rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Title -->
     <title>Linkmaster</title>
 </head>
 
 <body>
-    <header>
-        <!-- Acá estamos dentro del header-->
-        <div align="center"><img src="./data/billboard.jpg" alt="Linkmaster logo" width="50%" height="auto"></div>
+    <header class="main-header">
+        <img src="./files/billboard.jpg" alt="Linkmaster logo" class="hero-img desktop-only">
+        <img src="./files/billboard_16_7.jpg" alt="Linkmaster logo" class="hero-img mobile-only">
     </header>
     <nav>
-        <!-- Acá estamos dentro del nav-->
         <ul class="nav-list">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
-    <main>
-        <!-- Acá estamos dentro del main-->
-        <section id="inicio">
-
-            <h2>Acerca de Nosotros</h2><br>
-            <div id="about-us">
-                <p>Somos un grupo de personas apasionadas por la tecnología y la innovación. Nos gusta crear soluciones
-                    que faciliten la vida de las personas.<br>
-                    Técnicos, desarrolladores, especialistas en seguridad electrónica y diseñadores, son solo algunas de
-                    las
-                    capabilities del equipo.<br>
-                    Con mas de 10 años en el rubro y un equipo altamente capacitado, ofrecemos soluciones integrales y
-                    personalizadas a las necesidades de nuestros clientes.
-                </p>
-            </div>
-            <div id="about-us-img">
-                <img src="./data/street_billboard.jpg" alt="Nuestro equipo" width="100%" height="auto">
+    <main class="contenedor-principal">
+        <section id="inicio" class="seccion">
+            <h2 class="section-title">Acerca de Nosotros</h2>
+            <div class="about-container">
+                <div id="about-us">
+                    <p>Somos un equipo apasionado por la tecnología y la innovación, dedicado a crear soluciones que
+                        simplifican el día a día y potencian los negocios de nuestros clientes. Con más de 10 años de
+                        trayectoria en el rubro, hemos consolidado un grupo multidisciplinario de técnicos,
+                        desarrolladores,
+                        diseñadores y especialistas en seguridad electrónica.
+                        Esta diversidad de talentos nos permite ofrecer un enfoque verdaderamente integral: ya sea
+                        protegiendo y automatizando un hogar, optimizando la infraestructura IT de una oficina, o
+                        creando el
+                        ecosistema digital de una marca. Diseñamos e implementamos soluciones personalizadas, escalables
+                        y
+                        adaptadas a las necesidades reales de cada proyecto.</p>
+                </div>
+                <div id="about-us-img">
+                    <img src="./files/street_billboard_3_2.jpg" alt="Nuestro equipo">
+                </div>
             </div>
         </section>
 
-        <section id="servicios" class="servicios">
+        <section id="servicios" class="seccion servicios">
             <div>
-                <h2>Nuestros Servicios</h2><br>
+                <h2 class="section-title">Nuestros Servicios</h2><br>
                 <div class="carousel-container">
-                    <video src="./data/carousel/carousel.mp4" autoplay muted loop>
+                    <video src="./files/carousel_desktop.mp4" class="desktop-only" autoplay muted loop>
+                        Tu navegador no soporta este video.
+                    </video>
+                    <video src="./files/carousel_mobile.mp4" class="mobile-only" autoplay muted loop>
                         Tu navegador no soporta este video.
                     </video>
                 </div>
                 <ul class="lista-servicios">
                     <li>
                         <article class="card-servicios">
-                            <img src="./data/home_security_2.jpg" alt="Seguridad Domiciliaria/Smart Home">
+                            <img src="./files/home_security_2.jpg" alt="Seguridad Domiciliaria/Smart Home">
                             <p>Seguridad Domiciliaria/Smart Home:</p>
                             <ul class="detalles-servicios">
                                 <li>Automatización del Hogar</li>
@@ -71,15 +73,17 @@
                                 <li>Cercos Eléctricos</li>
                             </ul>
                             <div class="botones-container">
-                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar Visita</button>
-                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar Presupuesto</button>
+                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar
+                                    Visita</button>
+                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar
+                                    Presupuesto</button>
                             </div>
                             <p class="precio-destacado"><strong>Presupuesto sin cargo!</strong></p>
                         </article>
                     </li>
                     <li>
                         <article class="card-servicios">
-                            <img src="./data/wired_connectivity.jpg" alt="Telecomunicaciones">
+                            <img src="./files/wired_connectivity.jpg" alt="Telecomunicaciones">
                             <p>Telecomunicaciones:</p>
                             <ul class="detalles-servicios">
                                 <li>Redes cableadas e inalambricas</li>
@@ -90,15 +94,17 @@
                                 <li>Armado de Racks</li>
                             </ul>
                             <div class="botones-container">
-                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar Visita</button>
-                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar Presupuesto</button>
+                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar
+                                    Visita</button>
+                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar
+                                    Presupuesto</button>
                             </div>
                             <p class="precio-destacado"><strong>Presupuesto sin cargo!</strong></p>
                         </article>
                     </li>
                     <li>
                         <article class="card-servicios">
-                            <img src="./data/pcs-notebooks.jpg" alt="Instalación y Configuración">
+                            <img src="./files/pcs-notebooks.jpg" alt="Instalación y Configuración">
                             <p>Instalación y Configuración:</p>
                             <ul class="detalles-servicios">
                                 <li>PCs y Notebooks</li>
@@ -109,15 +115,17 @@
                                 <li>Mantenimiento de equipos</li>
                             </ul>
                             <div class="botones-container">
-                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar Visita</button>
-                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar Presupuesto</button>
+                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar
+                                    Visita</button>
+                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar
+                                    Presupuesto</button>
                             </div>
                             <p class="precio-destacado"><strong>Presupuesto sin cargo!</strong></p>
                         </article>
                     </li>
                     <li>
                         <article class="card-servicios">
-                            <img src="./data/logo_2.jpg" alt="Desarrollo Web/Apps">
+                            <img src="./files/logo_2.jpg" alt="Desarrollo Web/Apps">
                             <p>Desarrollo Web/Apps:</p>
                             <ul class="detalles-servicios">
                                 <li>Diseño de Páginas Web</li>
@@ -128,8 +136,10 @@
                                 <li>Landing Pages</li>
                             </ul>
                             <div class="botones-container">
-                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar Visita</button>
-                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar Presupuesto</button>
+                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar
+                                    Visita</button>
+                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar
+                                    Presupuesto</button>
                             </div>
                             <p class="precio-destacado"><strong>Presupuesto sin cargo!</strong></p>
                         </article>
@@ -138,90 +148,145 @@
             </div>
         </section>
 
-        <section id="contacto">
-            <div>
-
-                <p><strong>Visita nuestra sucursal:</strong></p>
-                <ul>
-                    <li>Av. Corrientes 1234, CABA</li>
-                </ul>
-                <p><strong>Horarios de atención:</strong></p>
-                <ul>
-                    <li>Lunes a Viernes de 9:00 a 18:00</li>
-                    <li>Sábados de 9:00 a 13:00</li>
-                </ul>
-                <p><strong>Métodos de pago:</strong></p>
-                <ul>
-                    <li>Efectivo</li>
-                    <li>Tarjeta de crédito/débito</li>
-                    <li>Transferencia bancaria</li>
-                    <li>Mercado Pago</li>
-                </ul>
-                <p><strong>Contáctanos:</strong></p>
-                <p><strong>puedes ponerte en contacto con nosotros a traves de los siguientes medios:</strong></p>
-                <ul>
-                    <li class="datos-contacto">Teléfono: <a href="tel:1123456789">11-2345-6789</a></li>
-                    <li class="datos-contacto">Email: <a
-                            href="mailto:contacto@linkmaster.com.ar">contacto@linkmaster.com.ar</a></li>
-                    <li>O completando el siguiente formulario:<br>
-                        <iframe src="pages/contacto.html" frameborder="0"
-                            style="width: 100%; max-width: 500px; height: 230px;"></iframe>
-                    </li>
-                </ul>
-
+        <section id="resenas" class="seccion">
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <div class="resenas-grid">
+                <div class="resena-card">
+                    <p>"Excelente servicio, instalaron las cámaras en mi casa rapidísimo y todo funciona perfecto."</p>
+                    <p><strong>- Juan P.</strong></p>
+                </div>
+                <div class="resena-card">
+                    <p>"Renovaron toda la red de nuestra oficina. Profesionales y muy atentos a los detalles."</p>
+                    <p><strong>- María G.</strong></p>
+                </div>
+                <div class="resena-card">
+                    <p>"La página web que nos armaron quedó increíble. Muy recomendables."</p>
+                    <p><strong>- Carlos S.</strong></p>
+                </div>
             </div>
         </section>
 
-        <!-- Nueva sección para la tabla de mensajes (Ejercicio Práctico #2) -->
-        <section id="registro-mensajes" style="margin-top: 30px;">
-            <h2>Registro de Mensajes de Contacto</h2>
-            <table border="1" style="width: 100%; border-collapse: collapse;">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Mensaje</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>María Gómez</td>
-                        <td>maria@email.com</td>
-                        <td>Consulta sobre horarios</td>
-                        <td>Respondido</td>
-                    </tr>
-                    <tr>
-                        <td>Carlos Pérez</td>
-                        <td>carlos@email.com</td>
-                        <td>Problema con transferencia</td>
-                        <td>Respondido</td>
-                    </tr>
-                    <!-- Fila que agrupa y ocupa todas las columnas usando colspan="4" -->
-                    <tr>
-                        <td colspan="4" style="text-align: center; font-weight: bold;">
-                            Mensajes pendientes de respuesta
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Ana Torres</td>
-                        <td>ana@email.com</td>
-                        <td>Quiero más información</td>
-                        <td>Pendiente</td>
-                    </tr>
-                </tbody>
-            </table>
+        <section id="contacto" class="seccion">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contacto-contenedor">
+                <div class="contacto-info">
+                    <p><strong>Visita nuestra sucursal:</strong></p>
+                    <ul>
+                        <li>Av. Corrientes 1234, CABA</li>
+                    </ul>
+                    <p><strong>Horarios de atención:</strong></p>
+                    <ul>
+                        <li>Lunes a Viernes de 9:00 a 18:00</li>
+                        <li>Sábados de 9:00 a 13:00</li>
+                    </ul>
+                    <p><strong>Métodos de pago:</strong></p>
+                    <ul>
+                        <li>Efectivo</li>
+                        <li>Tarjeta de crédito/débito</li>
+                        <li>Transferencia bancaria</li>
+                        <li>Mercado Pago</li>
+                    </ul>
+                    <p><strong>Contáctanos:</strong></p>
+                    <ul>
+                        <li class="datos-contacto">Teléfono: <a href="tel:1123456789">11-2345-6789</a></li>
+                        <li class="datos-contacto">Email: <a
+                                href="mailto:contacto@linkmaster.com.ar">contacto@linkmaster.com.ar</a></li>
+                    </ul>
+                </div>
+                <div class="contacto-form-container">
+                    <p><strong>O completando el siguiente formulario:</strong></p>
+                    <iframe src="pages/contacto.html" frameborder="0" class="contacto-iframe"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="newsletter" class="seccion">
+            <h2 class="section-title">Newsletter</h2>
+            <ul class="lista-servicios">
+                <li>
+                    <article class="card-servicios">
+                        <img src="./files/newsletter_1.jpg" alt="Newsletter 1">
+                        <p style="text-align: center;"><strong>Almacenamieto: Local o en la Nube?</strong></p>
+                        <div class="botones-container">
+                            <a href="pages/newsletter_1.html" class="btn-consultar"
+                                style="text-decoration: none; text-align: center; display: block; width: 100%; box-sizing: border-box;">Leer
+                                artículo</a>
+                        </div>
+                    </article>
+                </li>
+                <li>
+                    <article class="card-servicios">
+                        <img src="./files/newsletter_2.jpg" alt="Newsletter 2">
+                        <p style="text-align: center;"><strong>El Ordenador Vuelve a Importar</strong></p>
+                        <div class="botones-container">
+                            <a href="pages/newsletter_2.html" class="btn-consultar"
+                                style="text-decoration: none; text-align: center; display: block; width: 100%; box-sizing: border-box;">Leer
+                                artículo</a>
+                        </div>
+                    </article>
+                </li>
+                <li>
+                    <article class="card-servicios" style="opacity: 0.7;">
+                        <img src="./files/logo.jpg" alt="Próximamente">
+                        <p style="text-align: center;"><strong>PROXIMAMENTE....</strong></p>
+                        <div class="botones-container">
+                            <button class="btn-consultar" disabled
+                                style="background-color: #666; cursor: not-allowed; width: 100%;">No disponible</button>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <section id="registro-mensajes" class="seccion">
+            <h2 class="section-title">Registro de Mensajes de Contacto</h2>
+            <div class="table-responsive">
+                <table border="1" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Mensaje</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>María Gómez</td>
+                            <td>maria@email.com</td>
+                            <td>Consulta sobre horarios</td>
+                            <td>Respondido</td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Pérez</td>
+                            <td>carlos@email.com</td>
+                            <td>Problema con transferencia</td>
+                            <td>Respondido</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: center; font-weight: bold;">
+                                Mensajes pendientes de respuesta
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ana Torres</td>
+                            <td>ana@email.com</td>
+                            <td>Quiero más información</td>
+                            <td>Pendiente</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
     <footer>
-        <!-- Acá estamos dentro del footer-->
         <section id="redes-sociales">
             <ul class="redes-sociales">
-                <li><a href="https://www.facebook.com"><img src="./data/facebook.png" alt="Facebook" width="38"
+                <li><a href="https://www.facebook.com"><img src="./files/facebook.png" alt="Facebook" width="38"
                             height="38"></a></li>
-                <li><a href="https://www.twitter.com"><img src="./data/twitter.png" alt="X" width="38" height="38"></a>
+                <li><a href="https://www.twitter.com"><img src="./files/twitter.png" alt="X" width="38" height="38"></a>
                 </li>
-                <li><a href="https://www.instagram.com"><img src="./data/instagram.png" alt="Instagram" width="38"
+                <li><a href="https://www.instagram.com"><img src="./files/instagram.png" alt="Instagram" width="38"
                             height="38"></a></li>
             </ul>
         </section>
