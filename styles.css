@@ -16,11 +16,17 @@ html {
     box-sizing: inherit;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     background-color: #187A97;
     color: #f0f8ff;
     line-height: 1.6;
     margin: 0;
+    position: relative;
 }
 
 .contenedor-principal {
@@ -151,6 +157,7 @@ nav {
 .card-servicios img {
     display: block;
     margin: 0 auto 15px auto;
+    max-width: 100%;
     width: 80%;
     height: auto;
     border-radius: 10px;
@@ -732,7 +739,8 @@ footer {
 /* 2. Cards de Adicionales compactas y cuadradas */
 .lista-servicios>li.item-adicional {
     width: calc(25% - 1.5rem);
-    min-width: 220px;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
@@ -741,7 +749,7 @@ footer {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .lista-servicios>li.item-adicional {
         width: 100%;
     }
