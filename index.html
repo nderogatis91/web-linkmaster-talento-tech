@@ -10,7 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description"
+        content="Linkmaster - Soluciones integrales en seguridad electrónica, telecomunicaciones e infraestructura IT. Contratá tu plan de soporte técnico mensual.">
     <title>Linkmaster</title>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -19,11 +22,19 @@
         <img src="./files/billboard_16_7.jpg" alt="Linkmaster logo" class="hero-img mobile-only">
     </header>
     <nav>
-        <ul class="nav-list">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
+        <div class="nav-contenedor">
+            <ul class="nav-list">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button id="btn-abrir-carrito" class="nav-carrito-btn" aria-label="Abrir carrito de compras">
+                <i class="fas fa-shopping-cart"></i> Carrito
+                <span id="contador-carrito" class="badge-carrito">0</span>
+            </button>
+        </div>
     </nav>
     <main class="contenedor-principal">
         <section id="inicio" class="seccion">
@@ -148,6 +159,35 @@
             </div>
         </section>
 
+        <section id="planes" class="seccion">
+
+            <h2 class="section-title">Planes y Suscripciones Mensuales</h2>
+
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">
+
+                Elegí el plan de soporte técnico y mantenimiento que mejor se adapte a tus necesidades. Podés sumar
+                módulos adicionales a medida y contratar todo de forma 100% online.
+
+            </p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">
+
+                Todos los planes incluyen relevamiento inicial sin cargo.
+
+            </p>
+            <div id="productos-container">
+
+                <ul class="lista-servicios" id="lista-planes">
+
+                    <!-- Productos generados dinámicamente con fetch desde files/planes.json -->
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+
         <section id="resenas" class="seccion">
             <h2 class="section-title">Lo que dicen nuestros clientes</h2>
             <div class="resenas-grid">
@@ -164,6 +204,46 @@
                     <p><strong>- Carlos S.</strong></p>
                 </div>
             </div>
+        </section>
+
+
+
+        <section id="blog" class="seccion">
+            <h2 class="section-title">Blog</h2>
+            <ul class="lista-servicios">
+                <li>
+                    <article class="card-servicios">
+                        <img src="./files/newsletter_1.jpg" alt="blog 1">
+                        <p style="text-align: center;"><strong>Almacenamieto: Local o en la Nube?</strong></p>
+                        <div class="botones-container">
+                            <a href="pages/blog_1.html" class="btn-consultar"
+                                style="text-decoration: none; text-align: center; display: block; width: 100%; box-sizing: border-box;">Leer
+                                artículo</a>
+                        </div>
+                    </article>
+                </li>
+                <li>
+                    <article class="card-servicios">
+                        <img src="./files/newsletter_2.jpg" alt="blog 2">
+                        <p style="text-align: center;"><strong>El Ordenador Vuelve a Importar</strong></p>
+                        <div class="botones-container">
+                            <a href="pages/blog_2.html" class="btn-consultar"
+                                style="text-decoration: none; text-align: center; display: block; width: 100%; box-sizing: border-box;">Leer
+                                artículo</a>
+                        </div>
+                    </article>
+                </li>
+                <li>
+                    <article class="card-servicios" style="opacity: 0.7;">
+                        <img src="./files/logo.jpg" alt="Próximamente">
+                        <p style="text-align: center;"><strong>PROXIMAMENTE....</strong></p>
+                        <div class="botones-container">
+                            <button class="btn-consultar" disabled
+                                style="background-color: #666; cursor: not-allowed; width: 100%;">No disponible</button>
+                        </div>
+                    </article>
+                </li>
+            </ul>
         </section>
 
         <section id="contacto" class="seccion">
@@ -198,44 +278,6 @@
                     <iframe src="pages/contacto.html" frameborder="0" class="contacto-iframe"></iframe>
                 </div>
             </div>
-        </section>
-
-        <section id="newsletter" class="seccion">
-            <h2 class="section-title">Newsletter</h2>
-            <ul class="lista-servicios">
-                <li>
-                    <article class="card-servicios">
-                        <img src="./files/newsletter_1.jpg" alt="Newsletter 1">
-                        <p style="text-align: center;"><strong>Almacenamieto: Local o en la Nube?</strong></p>
-                        <div class="botones-container">
-                            <a href="pages/newsletter_1.html" class="btn-consultar"
-                                style="text-decoration: none; text-align: center; display: block; width: 100%; box-sizing: border-box;">Leer
-                                artículo</a>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="card-servicios">
-                        <img src="./files/newsletter_2.jpg" alt="Newsletter 2">
-                        <p style="text-align: center;"><strong>El Ordenador Vuelve a Importar</strong></p>
-                        <div class="botones-container">
-                            <a href="pages/newsletter_2.html" class="btn-consultar"
-                                style="text-decoration: none; text-align: center; display: block; width: 100%; box-sizing: border-box;">Leer
-                                artículo</a>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="card-servicios" style="opacity: 0.7;">
-                        <img src="./files/logo.jpg" alt="Próximamente">
-                        <p style="text-align: center;"><strong>PROXIMAMENTE....</strong></p>
-                        <div class="botones-container">
-                            <button class="btn-consultar" disabled
-                                style="background-color: #666; cursor: not-allowed; width: 100%;">No disponible</button>
-                        </div>
-                    </article>
-                </li>
-            </ul>
         </section>
 
         <section id="registro-mensajes" class="seccion">
@@ -294,6 +336,88 @@
             <p>Todos los derechos reservados a Linkmaster© 2026 - TalentoTech</p>
         </section>
     </footer>
+    <!-- Modal / Panel del Carrito y Checkout -->
+    <div id="modal-carrito" class="modal-carrito oculto">
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <h3 id="modal-titulo"><i class="fas fa-shopping-cart"></i> Tu Carrito de Suscripciones</h3>
+                <button id="btn-cerrar-carrito" class="btn-cerrar" aria-label="Cerrar carrito">&times;</button>
+            </div>
+
+            <!-- VISTA 1: Lista del Carrito -->
+            <div id="vista-carrito">
+                <div class="modal-body">
+                    <div id="carrito-vacio-msg" class="carrito-vacio">
+                        <p><i class="fas fa-box-open"
+                                style="font-size: 2.5rem; margin-bottom: 0.5rem; display: block;"></i>Tu carrito está
+                            vacío.</p>
+                    </div>
+                    <div id="carrito-lista" class="carrito-lista">
+                        <!-- Items del carrito generados con JS -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="total-contenedor">
+                        <span>Total mensual:</span>
+                        <strong id="carrito-total">$0</strong>
+                    </div>
+                    <div class="modal-acciones">
+                        <button id="btn-vaciar-carrito" class="btn-vaciar">Vaciar Carrito</button>
+                        <button id="btn-ir-checkout" class="btn-finalizar">Continuar con la Contratación</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISTA 2: Formulario de Checkout / Datos de Contacto -->
+            <div id="vista-checkout" class="oculto">
+                <div class="modal-body">
+                    <div class="resumen-checkout">
+                        <p>Total mensual a contratar: <strong id="checkout-total-resumen"
+                                style="color: #187C96;">$0</strong></p>
+                        <p style="font-size: 0.85rem; color: #666;">Completá tus datos para que un asesor técnico se
+                            ponga en contacto y coordine la activación del servicio.</p>
+                    </div>
+
+                    <form id="form-checkout" class="form-checkout" novalidate>
+                        <div class="campo-grupo">
+                            <label for="checkout-nombre">Nombre y Apellido *</label>
+                            <input type="text" id="checkout-nombre" placeholder="Ej: Juan Pérez">
+                            <span class="error-msg" id="error-nombre"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="checkout-telefono">Teléfono de contacto *</label>
+                            <input type="tel" id="checkout-telefono" placeholder="Ej: 1123456789">
+                            <span class="error-msg" id="error-telefono"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="checkout-email">Correo Electrónico *</label>
+                            <input type="email" id="checkout-email" placeholder="Ej: juan@ejemplo.com">
+                            <span class="error-msg" id="error-email"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="checkout-localidad">Localidad / Zona *</label>
+                            <input type="text" id="checkout-localidad" placeholder="Ej: CABA, Vicente López, etc.">
+                            <span class="error-msg" id="error-localidad"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-acciones">
+                        <button id="btn-volver-carrito" class="btn-vaciar" type="button"><i
+                                class="fas fa-arrow-left"></i> Volver</button>
+                        <button id="btn-confirmar-checkout" class="btn-finalizar" type="button"><i
+                                class="fas fa-check"></i> Confirmar Contratación</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
 </body>
 
 </html>

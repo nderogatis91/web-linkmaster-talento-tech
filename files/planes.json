@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "tipo": "plan",
+    "nombre": "Plan Home Basic",
+    "descripcion": "Soporte técnico esencial para computadoras del hogar y conectividad básica.",
+    "precio": 15000,
+    "imagen": "./files/pcs-notebooks.jpg",
+    "servicios": [
+      "Soporte remoto para hasta 2 PCs / Notebooks",
+      "Limpieza de software, optimización y antivirus",
+      "Diagnóstico y configuración de Wi-Fi domiciliario",
+      "1 visita técnica presencial por semestre"
+    ]
+  },
+  {
+    "id": 2,
+    "tipo": "plan",
+    "nombre": "Plan Home Premium",
+    "descripcion": "Cobertura integral para hogares conectados, domótica y seguridad domiciliaria.",
+    "precio": 28000,
+    "imagen": "./files/home_security_2.jpg",
+    "servicios": [
+      "Soporte técnico para hasta 4 equipos e impresoras",
+      "Mantenimiento de cámaras de seguridad y alarmas",
+      "Configuración de domótica y cerraduras electrónicas",
+      "Optimización de red Wi-Fi y repetidores",
+      "1 visita técnica presencial cada 2 meses"
+    ]
+  },
+  {
+    "id": 3,
+    "tipo": "plan",
+    "nombre": "Plan PYME",
+    "descripcion": "Continuidad operativa, soporte ágil y red estable para comercios y oficinas.",
+    "precio": 65000,
+    "imagen": "./files/wired_connectivity.jpg",
+    "servicios": [
+      "Mantenimiento de red (routers, switches y Wi-Fi)",
+      "Soporte integral para hasta 10 puestos de trabajo",
+      "Mantenimiento de cámaras comerciales y accesos",
+      "Soporte para telefonía IP (VoIP) y servidores locales",
+      "Visitas programadas + guardia de emergencias"
+    ]
+  },
+  {
+    "id": 4,
+    "tipo": "plan",
+    "nombre": "Plan Enterprise",
+    "descripcion": "Máxima disponibilidad, monitoreo proactivo y seguridad para infraestructuras críticas.",
+    "precio": 140000,
+    "imagen": "./files/enterprise_and_home_solutions.jpg",
+    "servicios": [
+      "Soporte ilimitado de puestos y servidores",
+      "Gestión de salas de telecomunicaciones y racks",
+      "Mantenimiento de cercos eléctricos y biométricos",
+      "Guardia técnica 24/7 con atención preferencial",
+      "Consultor IT dedicado y auditorías periódicas"
+    ]
+  },
+  {
+    "id": 5,
+    "tipo": "adicional",
+    "nombre": "Adicional: Puestos extra de PC (+2)",
+    "descripcion": "Ampliación de cobertura de soporte técnico para 2 computadoras o notebooks adicionales.",
+    "precio": 9000,
+    "imagen": "./files/remote_and_in_place_support.jpg",
+    "servicios": [
+      "Mantenimiento y soporte preventivo/correctivo",
+      "Configuración de software, correo y antivirus"
+    ]
+  },
+  {
+    "id": 6,
+    "tipo": "adicional",
+    "nombre": "Adicional: Cámaras y Alarmas Extra",
+    "descripcion": "Monitoreo técnico y service mensual para cámaras o sensores adicionales.",
+    "precio": 9000,
+    "imagen": "./files/home_security_2.jpg",
+    "servicios": [
+      "Revisión de grabadores NVR/DVR y visualización móvil",
+      "Verificación de fuentes y cableado de cámaras"
+    ]
+  },
+  {
+    "id": 7,
+    "tipo": "adicional",
+    "nombre": "Adicional: Punto de Acceso Wi-Fi / Red",
+    "descripcion": "Configuración y soporte de repetidores, puntos de acceso mesh o cableados.",
+    "precio": 9000,
+    "imagen": "./files/wired_connectivity.jpg",
+    "servicios": [
+      "Optimización de roaming y canales de frecuencia",
+      "Monitoreo de latencia y estabilidad de señal"
+    ]
+  },
+  {
+    "id": 8,
+    "tipo": "adicional",
+    "nombre": "Adicional: Visita Técnica Presencial Extra",
+    "descripcion": "Una visita técnica mensual adicional para mantenimiento o resolución en sitio.",
+    "precio": 9000,
+    "imagen": "./files/street_billboard.jpg",
+    "servicios": [
+      "Hasta 2 horas de mano de obra en domicilio u oficina",
+      "Diagnóstico presencial de fallas de hardware y red"
+    ]
+  }
+]
+
