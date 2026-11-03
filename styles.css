@@ -16,11 +16,17 @@ html {
     box-sizing: inherit;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     background-color: #187A97;
     color: #f0f8ff;
     line-height: 1.6;
     margin: 0;
+    position: relative;
 }
 
 .contenedor-principal {
@@ -151,6 +157,7 @@ nav {
 .card-servicios img {
     display: block;
     margin: 0 auto 15px auto;
+    max-width: 100%;
     width: 80%;
     height: auto;
     border-radius: 10px;
@@ -681,7 +688,7 @@ footer {
     right: 10px;
 }
 
-/* Ajustes responsivos para Tablet y Mobile (Sticky garantizado y ancho contenido) */
+/* Ajustes responsivos para Tablet y Mobile (Sticky, carrito compacto a la derecha en la misma línea) */
 @media (max-width: 920px) {
     nav {
         padding: 0.5rem 0.75rem;
@@ -689,50 +696,89 @@ footer {
     }
 
     .nav-contenedor {
-        padding: 0 5px;
+        padding: 0 45px 0 5px; /* Espacio para que el carrito a la derecha no se encime */
     }
 
     .nav-list {
-        gap: 1.25rem;
+        gap: 1.2rem;
+    }
+
+    /* Ocultamos el texto 'Carrito' para que sea solo icono + badge */
+    .nav-carrito-texto {
+        display: none;
+    }
+
+    .nav-contenedor .nav-carrito-btn {
+        position: absolute;
+        right: 10px;
+        padding: 0.45rem 0.6rem;
+        gap: 0.35rem;
     }
 }
 
 @media (max-width: 768px) {
     nav {
-        padding: 0.5rem;
-        font-size: 0.9rem;
+        padding: 0.45rem 0.5rem;
+        font-size: 0.85rem;
     }
 
     .nav-contenedor {
-        flex-direction: column;
-        gap: 0.5rem;
+        display: flex;
+        flex-direction: row; /* Siempre en una sola línea */
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
+        padding: 0 40px 0 0;
     }
 
     .nav-contenedor .nav-list {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.6rem 0.9rem;
-        width: 100%;
-        padding: 0;
+        flex-wrap: nowrap; /* Mantiene los links en fila compacta */
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        overflow-x: auto; /* Permite desplazamiento táctil fluido si es muy angosto */
+        scrollbar-width: none; /* Oculta scrollbar en Firefox */
+        width: calc(100% - 10px);
+        padding: 0.2rem 0;
+    }
+
+    .nav-contenedor .nav-list::-webkit-scrollbar {
+        display: none; /* Oculta scrollbar en Chrome/Safari */
     }
 
     .nav-contenedor .nav-list li {
         white-space: nowrap;
     }
 
+    .nav-contenedor .nav-list a {
+        padding: 0.2rem 0.3rem;
+    }
+
+    /* Carrito compacto en la esquina derecha */
+    .nav-carrito-texto {
+        display: none;
+    }
+
     .nav-contenedor .nav-carrito-btn {
-        position: static;
+        position: absolute;
+        right: 5px;
         font-size: 0.85rem;
-        padding: 0.35rem 0.8rem;
+        padding: 0.35rem 0.55rem;
+        gap: 0.3rem;
+    }
+
+    .badge-carrito {
+        padding: 1px 5px;
+        font-size: 0.7rem;
     }
 }
 
 /* 2. Cards de Adicionales compactas y cuadradas */
 .lista-servicios>li.item-adicional {
     width: calc(25% - 1.5rem);
-    min-width: 220px;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
@@ -741,7 +787,7 @@ footer {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .lista-servicios>li.item-adicional {
         width: 100%;
     }
