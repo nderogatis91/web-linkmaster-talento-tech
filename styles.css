@@ -16,17 +16,13 @@ html {
     box-sizing: inherit;
 }
 
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
 body {
     background-color: #187A97;
     color: #f0f8ff;
     line-height: 1.6;
     margin: 0;
-    position: relative;
+    max-width: 100%;
+    overflow-x: clip; /* clip corta desbordes sin crear contenedor de scroll, preservando position: sticky */
 }
 
 .contenedor-principal {
@@ -668,27 +664,39 @@ footer {
    AJUSTES SOLICITADOS: NAV Y CARDS DE ADICIONALES
    ========================================================================== */
 
-/* 1. Contenedor del Nav para empujar el carrito a la derecha */
+/* 1. Contenedor del Nav con Carrito a la derecha y Menú siempre CENTRADO */
 .nav-contenedor {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Menú siempre centrado en el medio */
     align-items: center;
     position: relative;
-    padding: 0 10px;
+    padding: 0 50px; /* Padding bilateral simétrico para que el carrito flotante no lo descentre */
 }
 
 .nav-contenedor .nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
     margin: 0 auto;
+    padding: 0;
+    list-style: none;
 }
 
 .nav-contenedor .nav-carrito-btn {
     position: absolute;
     right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-/* Ajustes responsivos para Tablet y Mobile (Sticky, carrito compacto a la derecha en la misma línea) */
+.nav-contenedor .nav-carrito-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* Ajustes responsivos para Tablet y Mobile (Sticky impecable, centrado y carrito compacto) */
 @media (max-width: 920px) {
     nav {
         padding: 0.5rem 0.75rem;
@@ -696,11 +704,11 @@ footer {
     }
 
     .nav-contenedor {
-        padding: 0 45px 0 5px; /* Espacio para que el carrito a la derecha no se encime */
+        padding: 0 45px;
     }
 
-    .nav-list {
-        gap: 1.2rem;
+    .nav-contenedor .nav-list {
+        gap: 1.1rem;
     }
 
     /* Ocultamos el texto 'Carrito' para que sea solo icono + badge */
@@ -709,8 +717,7 @@ footer {
     }
 
     .nav-contenedor .nav-carrito-btn {
-        position: absolute;
-        right: 10px;
+        right: 8px;
         padding: 0.45rem 0.6rem;
         gap: 0.35rem;
     }
@@ -723,28 +730,17 @@ footer {
     }
 
     .nav-contenedor {
-        display: flex;
-        flex-direction: row; /* Siempre en una sola línea */
-        justify-content: space-between;
-        align-items: center;
+        padding: 0 40px; /* Margen simétrico para que el menú quede perfectamente en el centro */
         width: 100%;
-        padding: 0 40px 0 0;
     }
 
     .nav-contenedor .nav-list {
         display: flex;
-        flex-wrap: nowrap; /* Mantiene los links en fila compacta */
-        justify-content: flex-start;
+        flex-wrap: wrap; /* Permite acomodar armónicamente los items */
+        justify-content: center; /* Centrado absoluto */
         align-items: center;
-        gap: 0.5rem;
-        overflow-x: auto; /* Permite desplazamiento táctil fluido si es muy angosto */
-        scrollbar-width: none; /* Oculta scrollbar en Firefox */
-        width: calc(100% - 10px);
-        padding: 0.2rem 0;
-    }
-
-    .nav-contenedor .nav-list::-webkit-scrollbar {
-        display: none; /* Oculta scrollbar en Chrome/Safari */
+        gap: 0.4rem 0.75rem;
+        margin: 0 auto;
     }
 
     .nav-contenedor .nav-list li {
@@ -755,13 +751,12 @@ footer {
         padding: 0.2rem 0.3rem;
     }
 
-    /* Carrito compacto en la esquina derecha */
+    /* Carrito compacto en la esquina derecha a la misma altura */
     .nav-carrito-texto {
         display: none;
     }
 
     .nav-contenedor .nav-carrito-btn {
-        position: absolute;
         right: 5px;
         font-size: 0.85rem;
         padding: 0.35rem 0.55rem;
