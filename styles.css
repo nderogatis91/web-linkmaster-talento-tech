@@ -22,7 +22,8 @@ body {
     line-height: 1.6;
     margin: 0;
     max-width: 100%;
-    overflow-x: clip; /* clip corta desbordes sin crear contenedor de scroll, preservando position: sticky */
+    overflow-x: clip;
+    /* clip corta desbordes sin crear contenedor de scroll, preservando position: sticky */
 }
 
 .contenedor-principal {
@@ -312,6 +313,56 @@ footer {
     text-align: center;
     margin-top: 1.5rem;
 }
+
+/* Redactores de las entradas de Blog */
+.redactores-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    grid-auto-flow: column; /* Cada li forma una columna del grid */
+    grid-auto-columns: max-content; /* El ancho de cada columna se ajusta a su contenido */
+    align-items: center; /* Centra verticalmente el título respecto a los redactores */
+    justify-content: flex-start;
+    gap: 1.5rem;
+}
+
+.redactores-titulo,
+.redactores-list > li:first-child {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #f0f8ff;
+}
+
+.redactores-img {
+    display: flex;
+    flex-direction: column; /* Coloca el nombre debajo de la imagen */
+    align-items: center; /* Centra horizontalmente imagen y nombre */
+    text-align: center;
+    gap: 0.4rem;
+}
+
+.redactores-img img {
+    width: 74px;
+    height: 74px;
+    min-width: 74px;
+    min-height: 74px;
+    max-width: 74px;
+    max-height: 74px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: block;
+}
+
+.redactores-img span {
+    font-size: 0.85rem;
+    color: #f0f8ff;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
 
 #fpo-blog img {
     width: 60%;
@@ -669,10 +720,12 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: center; /* Menú siempre centrado en el medio */
+    justify-content: center;
+    /* Menú siempre centrado en el medio */
     align-items: center;
     position: relative;
-    padding: 0 50px; /* Padding bilateral simétrico para que el carrito flotante no lo descentre */
+    padding: 0 50px;
+    /* Padding bilateral simétrico para que el carrito flotante no lo descentre */
 }
 
 .nav-contenedor .nav-list {
@@ -735,25 +788,31 @@ footer {
         align-items: center;
         width: 100%;
         padding-left: 0.25rem;
-        padding-right: 50px; /* Espacio reservado para el botón flotante del carrito a la derecha */
+        padding-right: 50px;
+        /* Espacio reservado para el botón flotante del carrito a la derecha */
         position: relative;
     }
 
     .nav-contenedor .nav-list {
         display: flex;
-        flex-wrap: nowrap; /* Una sola línea, nunca baja a una segunda */
-        justify-content: flex-start; /* Alineado a la izquierda */
+        flex-wrap: nowrap;
+        /* Una sola línea, nunca baja a una segunda */
+        justify-content: flex-start;
+        /* Alineado a la izquierda */
         align-items: center;
         gap: 0.55rem;
         margin: 0;
         padding: 0.2rem 0;
-        overflow-x: auto; /* Permite scroll horizontal suave si la pantalla es ultra estrecha */
-        scrollbar-width: none; /* Firefox */
+        overflow-x: auto;
+        /* Permite scroll horizontal suave si la pantalla es ultra estrecha */
+        scrollbar-width: none;
+        /* Firefox */
         width: 100%;
     }
 
     .nav-contenedor .nav-list::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Edge */
+        display: none;
+        /* Chrome, Safari, Edge */
     }
 
     .nav-contenedor .nav-list li {
