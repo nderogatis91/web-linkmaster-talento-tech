@@ -546,7 +546,7 @@ footer {
     border-radius: 10px;
     width: 100%;
     max-width: 550px;
-    max-height: 85vh;
+    max-height: 90vh; /* Permite aprovechar mejor la pantalla en notebooks */
     display: flex;
     flex-direction: column;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
@@ -560,6 +560,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .modal-header h3 {
@@ -579,10 +580,28 @@ footer {
     line-height: 1;
 }
 
+/* Vistas internas del modal (Carrito y Checkout) */
+#vista-carrito,
+#vista-checkout {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0; /* Permite que el contenedor flex hijo se adapte y no desborde la pantalla */
+    overflow: hidden;
+}
+
 .modal-body {
     padding: 1.25rem;
-    overflow-y: auto;
+    overflow-y: auto; /* Habilita el scroll interno en caso de pantallas bajas */
     flex: 1;
+    min-height: 0;
+}
+
+.modal-footer {
+    padding: 1rem 1.25rem;
+    background-color: #f8fafc;
+    border-top: 1px solid #eeeeee;
+    flex-shrink: 0; /* El footer nunca se encoge ni se oculta */
 }
 
 .carrito-vacio {
@@ -653,11 +672,7 @@ footer {
     color: #d63031;
 }
 
-.modal-footer {
-    padding: 1rem 1.25rem;
-    background-color: #f8fafc;
-    border-top: 1px solid #eeeeee;
-}
+
 
 .total-contenedor {
     display: flex;
@@ -968,4 +983,41 @@ footer {
 /* Clase utilitaria global para ocultar vistas y elementos */
 .oculto {
     display: none !important;
+}
+
+/* Ajustes para pantallas con poca altura vertical (notebooks, laptops y tablets apaisadas) */
+@media (max-height: 720px) {
+    .modal-contenido {
+        max-height: 94vh;
+    }
+
+    .modal-header {
+        padding: 0.65rem 1rem;
+    }
+
+    .modal-body {
+        padding: 0.75rem 1rem;
+    }
+
+    .modal-footer {
+        padding: 0.65rem 1rem;
+    }
+
+    .resumen-checkout {
+        padding: 6px 12px;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-checkout {
+        gap: 0.5rem;
+    }
+
+    .campo-grupo input {
+        padding: 6px 10px;
+    }
+
+    .error-msg {
+        min-height: 12px;
+        font-size: 0.7rem;
+    }
 }
