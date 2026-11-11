@@ -1,16 +1,10 @@
-// ==========================================================================
-// PROYECTO FINAL FRONT END - LINKMASTER (Clases 12 a 16)
-// ==========================================================================
-
-// Ruta del archivo JSON con los datos de suscripciones y adicionales
 const PLANES_URL = "./files/planes.json";
-
-// Estado del carrito: Recuperar de localStorage o iniciar con array vacío
 let carrito = JSON.parse(localStorage.getItem("carritoLinkmaster")) || [];
+const modalIframe = document.getElementById("modal-iframe-container");
+const iframe = document.getElementById("iframe-servicio");
+const tituloIframe = document.getElementById("modal-iframe-titulo");
+const btnCerrarIframe = document.getElementById("btn-cerrar-iframe");
 
-// ==========================================================================
-// 1. OBTENER Y RENDERIZAR PRODUCTOS/PLANES CON FETCH (Clase 14)
-// ==========================================================================
 function cargarPlanes() {
     const contenedor = document.getElementById("lista-planes");
     if (!contenedor) return;
@@ -25,23 +19,19 @@ function cargarPlanes() {
             return response.json();
         })
         .then(planes => {
-            contenedor.innerHTML = ""; // Limpiamos mensaje de carga
+            contenedor.innerHTML = "";
 
             planes.forEach(plan => {
                 const li = document.createElement("li");
-
-                // Creamos la tarjeta
                 const article = document.createElement("article");
                 article.classList.add("card-servicios");
 
-                // Si es un adicional, añadimos clase especial para diseño compacto
                 const esAdicional = plan.tipo === "adicional";
                 if (esAdicional) {
                     li.classList.add("item-adicional");
                     article.classList.add("card-adicional");
                 }
 
-                // Imagen (solo para los planes principales)
                 if (!esAdicional && plan.imagen) {
                     const img = document.createElement("img");
                     img.src = plan.imagen;
@@ -49,18 +39,15 @@ function cargarPlanes() {
                     article.appendChild(img);
                 }
 
-                // Título
                 const pTitulo = document.createElement("p");
                 pTitulo.innerHTML = `<strong>${plan.nombre}</strong>`;
                 article.appendChild(pTitulo);
 
-                // Descripción breve
                 const pDesc = document.createElement("p");
                 pDesc.classList.add("desc-texto");
                 pDesc.textContent = plan.descripcion;
                 article.appendChild(pDesc);
 
-                // Lista de características / servicios incluidos
                 if (plan.servicios && plan.servicios.length > 0) {
                     const ulServicios = document.createElement("ul");
                     ulServicios.classList.add("detalles-servicios");
@@ -72,13 +59,11 @@ function cargarPlanes() {
                     article.appendChild(ulServicios);
                 }
 
-                // Precio destacado
                 const pPrecio = document.createElement("p");
                 pPrecio.classList.add("precio-destacado");
                 pPrecio.innerHTML = `<strong>$${plan.precio.toLocaleString("es-AR")}</strong> / mes`;
                 article.appendChild(pPrecio);
 
-                // Botón Añadir al Carrito
                 const divBotones = document.createElement("div");
                 divBotones.classList.add("botones-container");
 
@@ -106,16 +91,10 @@ function cargarPlanes() {
         });
 }
 
-// ==========================================================================
-// 2. GESTIÓN DEL CARRITO (Clases 13 y 14)
-// ==========================================================================
-
-// Guardar en LocalStorage
 function guardarCarrito() {
     localStorage.setItem("carritoLinkmaster", JSON.stringify(carrito));
 }
 
-// Actualizar el contador en el Nav
 function actualizarContador() {
     const contadorElem = document.getElementById("contador-carrito");
     if (!contadorElem) return;
@@ -124,7 +103,6 @@ function actualizarContador() {
     contadorElem.textContent = totalCantidad;
 }
 
-// Agregar producto al carrito
 function agregarAlCarrito(producto) {
     const itemExistente = carrito.find(item => item.id === producto.id);
 
@@ -147,7 +125,6 @@ function agregarAlCarrito(producto) {
     alert(`"${producto.nombre}" fue añadido al carrito exitosamente.`);
 }
 
-// Modificar cantidad (+ / -)
 function cambiarCantidad(id, cambio) {
     const item = carrito.find(p => p.id === id);
     if (!item) return;
@@ -164,7 +141,6 @@ function cambiarCantidad(id, cambio) {
     renderizarCarrito();
 }
 
-// Eliminar un producto del carrito
 function eliminarDelCarrito(id) {
     carrito = carrito.filter(item => item.id !== id);
     guardarCarrito();
@@ -172,7 +148,6 @@ function eliminarDelCarrito(id) {
     renderizarCarrito();
 }
 
-// Vaciar carrito completo
 function vaciarCarrito() {
     if (carrito.length === 0) return;
 
@@ -185,12 +160,10 @@ function vaciarCarrito() {
     }
 }
 
-// Calcular total acumulado del carrito
 function calcularTotalCarrito() {
     return carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
 }
 
-// Renderizar la lista de items en el modal
 function renderizarCarrito() {
     const listaElem = document.getElementById("carrito-lista");
     const vacioMsg = document.getElementById("carrito-vacio-msg");
@@ -240,9 +213,6 @@ function renderizarCarrito() {
     totalElem.textContent = `$${total.toLocaleString("es-AR")}`;
 }
 
-// ==========================================================================
-// 3. NAVEGACIÓN DENTRO DEL MODAL (Vista Carrito vs Vista Checkout)
-// ==========================================================================
 function mostrarVistaCarrito() {
     const vistaCarrito = document.getElementById("vista-carrito");
     const vistaCheckout = document.getElementById("vista-checkout");
@@ -295,13 +265,10 @@ function cerrarModalCarrito() {
     const modal = document.getElementById("modal-carrito");
     if (modal) {
         modal.classList.add("oculto");
-        mostrarVistaCarrito(); // Reseteamos a la vista 1 para la próxima apertura
+        mostrarVistaCarrito();
     }
 }
 
-// ==========================================================================
-// 4. VALIDACIÓN CON JS DEL FORMULARIO DE CHECKOUT (Clases 10 y 14)
-// ==========================================================================
 function limpiarErroresCheckout() {
     const campos = ["nombre", "telefono", "email", "localidad"];
     campos.forEach(c => {
@@ -313,7 +280,6 @@ function limpiarErroresCheckout() {
 }
 
 function procesarCheckout() {
-    // 1. Capturar valores
     const inputNombre = document.getElementById("checkout-nombre");
     const inputTelefono = document.getElementById("checkout-telefono");
     const inputEmail = document.getElementById("checkout-email");
@@ -327,14 +293,12 @@ function procesarCheckout() {
     let esValido = true;
     limpiarErroresCheckout();
 
-    // 2. Validación de Nombre y Apellido (al menos 3 caracteres y letras)
     if (nombre === "" || nombre.length < 3 || !isNaN(nombre)) {
         document.getElementById("error-nombre").textContent = "Por favor, ingresá un nombre y apellido válido.";
         inputNombre.classList.add("campo-invalido");
         esValido = false;
     }
 
-    // 3. Validación de Teléfono (mínimo 8 dígitos numéricos)
     const telRegex = /^[0-9+\s-]{8,15}$/;
     if (telefono === "" || !telRegex.test(telefono)) {
         document.getElementById("error-telefono").textContent = "Ingresá un teléfono válido (mínimo 8 números).";
@@ -342,32 +306,26 @@ function procesarCheckout() {
         esValido = false;
     }
 
-    // 4. Validación de Correo con operador lógico y presencia de @ y . (visto en Clase 10)
     if (email === "" || !email.includes("@") || !email.includes(".") || email.length < 6) {
         document.getElementById("error-email").textContent = "Ingresá un correo electrónico válido (ej: nombre@correo.com).";
         inputEmail.classList.add("campo-invalido");
         esValido = false;
     }
 
-    // 5. Validación de Localidad
     if (localidad === "" || localidad.length < 3) {
         document.getElementById("error-localidad").textContent = "Por favor, especificá tu localidad o zona.";
         inputLocalidad.classList.add("campo-invalido");
         esValido = false;
     }
 
-    // Si falló alguna validación, frenamos el envío sin vaciar nada
     if (!esValido) {
         return;
     }
 
-    // ======================================================================
-    // 5. CONFIRMACIÓN Y VACIADO DEL CARRITO TRAS VALIDAR EXITOSAMENTE
-    // ======================================================================
     const totalContratado = calcularTotalCarrito();
     const cantPlanes = carrito.reduce((acc, i) => acc + i.cantidad, 0);
 
-    const mensajeExito = 
+    const mensajeExito =
         `¡Muchas gracias, ${nombre}!\n\n` +
         `Tu solicitud de contratación por ${cantPlanes} servicio(s) fue procesada con éxito.\n` +
         `Total mensual estimado: $${totalContratado.toLocaleString("es-AR")}\n\n` +
@@ -375,33 +333,26 @@ function procesarCheckout() {
 
     alert(mensajeExito);
 
-    // AQUÍ SÍ, recién ahora que tenemos los datos válidos, vaciamos el carrito:
     carrito = [];
     guardarCarrito();
     actualizarContador();
     renderizarCarrito();
 
-    // Limpiamos los inputs del formulario
     inputNombre.value = "";
     inputTelefono.value = "";
     inputEmail.value = "";
     inputLocalidad.value = "";
 
-    // Cerramos el modal
     cerrarModalCarrito();
 }
 
-// ==========================================================================
-// 6. INICIALIZACIÓN DE EVENTOS Y CARGA
-// ==========================================================================
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Inicializar contador y render del carrito guardado en localStorage
+
     actualizarContador();
 
-    // 2. Cargar productos desde el JSON con fetch
+
     cargarPlanes();
 
-    // 3. Eventos del modal
     const btnAbrir = document.getElementById("btn-abrir-carrito");
     const btnCerrar = document.getElementById("btn-cerrar-carrito");
     const modal = document.getElementById("modal-carrito");
@@ -417,7 +368,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. Botones de acción del carrito
     const btnVaciar = document.getElementById("btn-vaciar-carrito");
     const btnIrCheckout = document.getElementById("btn-ir-checkout");
     const btnVolverCarrito = document.getElementById("btn-volver-carrito");
@@ -427,4 +377,47 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnIrCheckout) btnIrCheckout.addEventListener("click", mostrarVistaCheckout);
     if (btnVolverCarrito) btnVolverCarrito.addEventListener("click", mostrarVistaCarrito);
     if (btnConfirmarCheckout) btnConfirmarCheckout.addEventListener("click", procesarCheckout);
+
+
+    document.querySelectorAll(".btn-agendar").forEach(btn => {
+        btn.addEventListener("click", () => {
+            abrirModalIframe("pages/calendar.html", "Agendar Visita Técnica", "fas fa-calendar-check");
+        });
+    });
+
+    document.querySelectorAll(".btn-presupuesto").forEach(btn => {
+        btn.addEventListener("click", () => {
+            abrirModalIframe("pages/contacto.html", "Solicitar Presupuesto Sin Cargo", "fas fa-comment-dollar");
+        });
+    });
+
+    if (btnCerrarIframe) {
+        btnCerrarIframe.addEventListener("click", cerrarModalIframe);
+    }
+
+    if (modalIframe) {
+        modalIframe.addEventListener("click", (e) => {
+            if (e.target === modalIframe) cerrarModalIframe();
+        });
+    }
+
+});
+
+function abrirModalIframe(url, tituloTexto, iconoClase) {
+    if (!modalIframe || !iframe) return;
+    iframe.src = url;
+    tituloIframe.innerHTML = `<i class="${iconoClase}"></i> <span>${tituloTexto}</span>`;
+    modalIframe.classList.remove("oculto");
+}
+function cerrarModalIframe() {
+    if (!modalIframe || !iframe) return;
+    modalIframe.classList.add("oculto");
+    iframe.src = "";
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        cerrarModalCarrito();
+        cerrarModalIframe();
+    }
 });

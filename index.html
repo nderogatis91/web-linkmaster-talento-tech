@@ -84,9 +84,10 @@
                                 <li>Cercos Eléctricos</li>
                             </ul>
                             <div class="botones-container">
-                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar
+                                <button class="btn-consultar btn-agendar"><i class='fas fa-calendar-check'></i> Agendar
                                     Visita</button>
-                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar
+                                <button class="btn-consultar btn-presupuesto"><i class='fas fa-comment-dollar'></i>
+                                    Solicitar
                                     Presupuesto</button>
                             </div>
                             <p class="precio-destacado"><strong>Presupuesto sin cargo!</strong></p>
@@ -105,9 +106,10 @@
                                 <li>Armado de Racks</li>
                             </ul>
                             <div class="botones-container">
-                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar
+                                <button class="btn-consultar btn-agendar"><i class='fas fa-calendar-check'></i> Agendar
                                     Visita</button>
-                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar
+                                <button class="btn-consultar btn-presupuesto"><i class='fas fa-comment-dollar'></i>
+                                    Solicitar
                                     Presupuesto</button>
                             </div>
                             <p class="precio-destacado"><strong>Presupuesto sin cargo!</strong></p>
@@ -126,9 +128,10 @@
                                 <li>Mantenimiento de equipos</li>
                             </ul>
                             <div class="botones-container">
-                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar
+                                <button class="btn-consultar btn-agendar"><i class='fas fa-calendar-check'></i> Agendar
                                     Visita</button>
-                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar
+                                <button class="btn-consultar btn-presupuesto"><i class='fas fa-comment-dollar'></i>
+                                    Solicitar
                                     Presupuesto</button>
                             </div>
                             <p class="precio-destacado"><strong>Presupuesto sin cargo!</strong></p>
@@ -147,9 +150,10 @@
                                 <li>Landing Pages</li>
                             </ul>
                             <div class="botones-container">
-                                <button class="btn-consultar"><i class='fas fa-calendar-check'></i> Agendar
+                                <button class="btn-consultar btn-agendar"><i class='fas fa-calendar-check'></i> Agendar
                                     Visita</button>
-                                <button class="btn-consultar"><i class='fas fa-comment-dollar'></i> Solicitar
+                                <button class="btn-consultar btn-presupuesto"><i class='fas fa-comment-dollar'></i>
+                                    Solicitar
                                     Presupuesto</button>
                             </div>
                             <p class="precio-destacado"><strong>Presupuesto sin cargo!</strong></p>
@@ -186,8 +190,6 @@
 
         </section>
 
-
-
         <section id="resenas" class="seccion">
             <h2 class="section-title">Lo que dicen nuestros clientes</h2>
             <div class="resenas-grid">
@@ -205,8 +207,6 @@
                 </div>
             </div>
         </section>
-
-
 
         <section id="blog" class="seccion">
             <h2 class="section-title">Blog</h2>
@@ -336,7 +336,7 @@
             <p>Todos los derechos reservados a Linkmaster© 2026 - TalentoTech</p>
         </section>
     </footer>
-    <!-- Modal / Panel del Carrito y Checkout -->
+
     <div id="modal-carrito" class="modal-carrito oculto">
         <div class="modal-contenido">
             <div class="modal-header">
@@ -344,7 +344,6 @@
                 <button id="btn-cerrar-carrito" class="btn-cerrar" aria-label="Cerrar carrito">&times;</button>
             </div>
 
-            <!-- VISTA 1: Lista del Carrito -->
             <div id="vista-carrito">
                 <div class="modal-body">
                     <div id="carrito-vacio-msg" class="carrito-vacio">
@@ -353,7 +352,6 @@
                             vacío.</p>
                     </div>
                     <div id="carrito-lista" class="carrito-lista">
-                        <!-- Items del carrito generados con JS -->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -368,7 +366,6 @@
                 </div>
             </div>
 
-            <!-- VISTA 2: Formulario de Checkout / Datos de Contacto -->
             <div id="vista-checkout" class="oculto">
                 <div class="modal-body">
                     <div class="resumen-checkout">
@@ -416,8 +413,18 @@
         </div>
     </div>
 
+    <div id="modal-iframe-container" class="modal-carrito oculto">
+        <div class="modal-contenido" style="max-width: 700px; height: 85vh;">
+            <div class="modal-header">
+                <h3 id="modal-iframe-titulo"><i class="fas fa-calendar-alt"></i> <span>Título</span></h3>
+                <button id="btn-cerrar-iframe" class="btn-cerrar" aria-label="Cerrar ventana">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 0; overflow: hidden; height: 100%;">
+                <iframe id="iframe-servicio" src="" frameborder="0"
+                    style="width: 100%; height: 100%; border: none;"></iframe>
+            </div>
+        </div>
     </div>
-
 </body>
 
 </html>
