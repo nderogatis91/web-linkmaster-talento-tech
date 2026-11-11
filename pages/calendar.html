@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            font-family: 'Google Sans Flex', sans-serif;
+            padding: 1.5rem;
+        }
+
+        h2 {
+            color: #187C96;
+            margin-top: 1.5rem;
+            text-transform: capitalize;
+        }
+
+        ol {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            list-style: none;
+            padding: 0;
+            gap: 5px;
+            text-align: center;
+        }
+
+        li.day-name {
+            font-weight: bold;
+            color: #64748b;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .first-day {
+            grid-column-start: var(--first-day-start, 1);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        const actualYear = 2026
+
+        const locale = 'es'
+
+        const intlForMonths = new Intl.DateTimeFormat(locale, { month: 'long' })
+        const months = [...Array(12).keys()]
+
+        const intlForWeeks = new Intl.DateTimeFormat(locale, { weekday: 'short' })
+        const weekDays = [...Array(7).keys()].map((dayIndex) =>
+            intlForWeeks.format(new Date(2026, 2, dayIndex + 1))
+        )
+
+        const calendar = months.map((monthIndex) => {
+            const monthName = intlForMonths.format(new Date(actualYear, monthIndex))
+            const nextMonthIndex = (monthIndex + 1) % 12
+            const daysOfMonth = new Date(actualYear, nextMonthIndex, 0).getDate()
+            const startsOn = new Date(actualYear, monthIndex, 1).getDay()
+
+            return {
+                daysOfMonth,
+                monthName,
+                startsOn
+            }
+        })
+
+        const html = calendar
+            .map(({ daysOfMonth, monthName, startsOn }) => {
+                const days = [...Array(daysOfMonth).keys()]
+                const firstDayAttributes = `class='first-day' style='--first-day-start: ${startsOn}'`
+                const htmlDaysName = weekDays
+                    .map((dayName) => `<li class='day-name'>${dayName}</li>`)
+                    .join('')
+                const htmlDays = days
+                    .map(
+                        (day, index) =>
+                            `<li ${index === 0 ? firstDayAttributes : ''}>${day + 1}</li>`
+                    )
+                    .join('')
+                return `<h2>${monthName} ${actualYear}</h2><ol>${htmlDaysName}${htmlDays}</ol>`
+            })
+            .join('')
+
+        document.querySelector('div').innerHTML = html
+    </script>
+</body>
+
+</html>
